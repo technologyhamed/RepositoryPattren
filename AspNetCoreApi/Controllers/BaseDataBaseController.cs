@@ -34,11 +34,6 @@ namespace AspNetCoreApi.Controllers
         {
             if (Entity is null)
                 return BadRequest("Entity is null");
-            //var entity = repository.GetId(Id);
-           // if (entity == null)
-              //  return BadRequest("Entity is Not Found");
-           // if (entity.Id != Entity.Id)
-              //  return Content("Entity is Not True");
             await repository.Update(Entity);
             return Content("Update is True");
         }

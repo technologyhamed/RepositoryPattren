@@ -1,5 +1,4 @@
 ﻿using AspNetCoreApi.Repository;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -18,11 +17,6 @@ namespace AspNetCoreApi.Models
             this.BlogName = BlogName;
         }
 
-
-        
-
-        [ForeignKey("User")]
-        public int? UserId { get; set; }
         public virtual User User { get; set; }
 
 

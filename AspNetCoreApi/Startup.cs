@@ -1,4 +1,6 @@
+using AspNetCoreApi.Controllers;
 using AspNetCoreApi.DBContext;
+using AspNetCoreApi.FileRepository;
 using AspNetCoreApi.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,7 +29,9 @@ namespace AspNetCoreApi
 
 
             services.AddScoped<EfCoreRepositoryUser>();
+
             services.AddScoped<EfCoreRepositoryUserRole>();
+            services.AddTransient<IFileService,FileRepository.FileRepository>();
 
         }
 
@@ -47,7 +51,21 @@ namespace AspNetCoreApi
 
             app.UseEndpoints(endpoints =>
             {
-                   endpoints.MapControllers();
+            endpoints.MapControllers();
+
+                endpoints.MapControllerRoute(
+                     name: "User",
+                       pattern: "{controller}/{action}/{id?}",
+                     defaults: new { action = "GetTask" });
+
+                endpoints.MapControllerRoute(
+                     name: "File",
+                       pattern: "{controller}/{action}/{id?}",
+                     defaults: new { action = "Upload" });
+                // endpoints.MapControllerRoute(
+                //     name: "api",
+                //     pattern: "{controller}/{id?}");
+
             });
         }
     }

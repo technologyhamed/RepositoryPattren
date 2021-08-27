@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AspNetCoreApi.Migrations
 {
     [DbContext(typeof(WebApiContext))]
-    [Migration("20210825221804_1")]
-    partial class _1
+    [Migration("20210827152349_Feilds")]
+    partial class Feilds
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,12 +53,7 @@ namespace AspNetCoreApi.Migrations
                     b.Property<string>("RoleName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Roles");
                 });
@@ -125,15 +120,6 @@ namespace AspNetCoreApi.Migrations
                 {
                     b.HasOne("AspNetCoreApi.Models.User", "User")
                         .WithMany("Blogs")
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("AspNetCoreApi.Models.Role", b =>
-                {
-                    b.HasOne("AspNetCoreApi.Models.User", "User")
-                        .WithMany()
                         .HasForeignKey("UserId");
 
                     b.Navigation("User");

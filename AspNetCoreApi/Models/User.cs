@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace AspNetCoreApi.Models
 {
@@ -14,11 +14,11 @@ namespace AspNetCoreApi.Models
         [Required]
         [StringLength(20, MinimumLength = 5)]
         public string LastName { get; set; }
-        [StringLength(20, MinimumLength = 20)]
+        [StringLength(20, MinimumLength = 8)]
         public string PhoneNumber { get; set; }
         [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }
-        [StringLength(20, MinimumLength = 20)]
+        [StringLength(20, MinimumLength = 5)]
         public string Email { get; set; }
 
       

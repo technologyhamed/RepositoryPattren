@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AspNetCoreApi.Migrations
 {
     [DbContext(typeof(WebApiContext))]
-    [Migration("20210825222402_2")]
-    partial class _2
+    [Migration("20210827123654_virtual")]
+    partial class @virtual
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
